@@ -5,6 +5,7 @@ class Element {
 	String name
 	String definition
 	String uri
+	Element parent
 	String sameAs
 	String similarTo
     static constraints = {
