@@ -45,7 +45,7 @@
 				<li class="fieldcontain">
 					<span id="parent-label" class="property-label"><g:message code="element.parent.label" default="Parent" /></span>
 					
-						<span class="property-value" aria-labelledby="parent-label"><g:link controller="element" action="show" id="${elementInstance?.parent?.id}">${elementInstance?.parent?.name.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="parent-label"><g:link controller="element" action="show" id="${elementInstance?.parent?.id}">${elementInstance?.parent?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

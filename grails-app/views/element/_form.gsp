@@ -23,8 +23,25 @@
 		<g:message code="element.parent.label" default="Parent" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="parent" name="parent.id" from="${grailshtmlgen.Element.list()}" optionKey="id" required="" optionValue="name" class="many-to-one"/>
+	<g:select id="parent" name="parent.id" from="${grailshtmlgen.Element.list()}" optionKey="id" required="" value="${elementInstance?.parent?.id}" class="many-to-one"/>
 </div>
+
+<div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'properties1', 'error')} required">
+	<label for="properties1">
+		<g:message code="element.property.label" default="Property" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="property" name="property.id" from="${grailshtmlgen.Property.list()}" optionKey="id" required="" value="${elementInstance?.properties1?.id}" class="many-to-one"/>
+</div>
+
+<%--<div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'properties1', 'error')} required">
+	<label for="properties1">
+		<g:message code="element.properties1.label" default="Properties" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="property" name="property" from="${grailshtmlgen.Property.list()*toLong()}" optionKey="id" required="" value="${elementInstance?.properties1}" class="many-to-one" multiple = "true"/>
+</div>--%>
+
 
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'sameAs', 'error')} ">
 	<label for="sameAs">

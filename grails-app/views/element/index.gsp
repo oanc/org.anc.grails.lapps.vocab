@@ -6,8 +6,14 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'element.label', default: 'Element')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
+
 	</head>
 	<body>
+			<g:link action="toLink"> 
+   			This is a grails app with a button link without a form or submit. Click this 
+   			<input type="button" value="I'm a Button Link" class="button"/> 
+   			and it should jump to the action.
+</g:link>
 		<a href="#list-element" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -35,6 +41,7 @@
 						<g:sortableColumn property="similarTo" title="${message(code: 'element.similarTo.label', default: 'Similar To')}" />
 					
 						<g:sortableColumn property="uri" title="${message(code: 'element.uri.label', default: 'Uri')}" />
+						<th><g:message code="element.parent.label" default="Parent" /></th>
 					
 					</tr>
 				</thead>
@@ -42,18 +49,16 @@
 				<g:each in="${elementInstanceList}" status="i" var="elementInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${elementInstance.id}">${fieldValue(bean: elementInstance, field: "definition")}</g:link></td>
-					
-						<td>${fieldValue(bean: elementInstance, field: "name")}</td>
-					
-						<td><g:if test="${elementInstance.parent == null}">None</g:if>
-						<g:else><g:link controller="element" action="show" id="${elementInstance?.parent?.id}">${elementInstance?.parent?.name.encodeAsHTML()}</g:link></g:else></td>
-					
-						<td>${fieldValue(bean: elementInstance, field: "sameAs")}</td>
-					
-						<td>${fieldValue(bean: elementInstance, field: "similarTo")}</td>
-					
-						<td>${fieldValue(bean: elementInstance, field: "uri")}</td>
+						<td>${elementInstance.name }</td>
+						<td>${elementInstance.definition}</td>
+						<td>${elementInstance.parent}</td>
+						<td>${elementInstance.sameAs }</td>
+						<td>${elementInstance.similarTo}</td>
+						<td>${elementInstance.uri}</td>
+						<td>${elementInstance.properties1}</td>
+						<td><g:each in="${elementInstance.properties1}" status="j" var="propertyInstance">
+								${propertyInstance.name}
+							</g:each></td>
 					
 					</tr>
 				</g:each>
