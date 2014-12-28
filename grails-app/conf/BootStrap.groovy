@@ -1,9 +1,16 @@
 import grailshtmlgen.Element
 import grailshtmlgen.Property
+import grailshtmlgen.Uri
 
 class BootStrap {
+    Uri none = new Uri(uri:'none').save(failOnError: true)
 
     def init = { servletContext ->
+        Uri isocatThing = new Uri(uri:"http://isocat.org/Thing").save(failOnError: true)
+        Uri isocatToken = new Uri(uri:"http://isocat.org/Token").save(failOnError: true)
+        Uri schemaThing = new Uri(uri:"http://schema.org/Thing").save(failOnError: true)
+        Uri schemaPerson = new Uri(uri:"http://schema.org/Person").save(failOnError: true)
+
         Property start = property('start', 'Integer', 'Start offset of the annotation.')
         Property end = property('end', 'Integer', 'End offset of the annotation')
         Property pos = property('pos', 'String', 'Part of speech')
@@ -25,7 +32,7 @@ class BootStrap {
 
     Element element(String name, String definition, List<Property> props = [], Element parent=null) {
         println "Creating element ${name}"
-        Element e = new Element(name: name, definition: definition, parent:parent, properties1: props, sameAs:'none', similarTo:'none', uri:"http://vocab.lappsgrid.org/${name}")
+        Element e = new Element(name: name, definition: definition, parent:parent, properties1: props, sameAs:[none], similarTo:[none], uri:"http://vocab.lappsgrid.org/${name}")
 //        if (e.props == null) {
 //            println "Creating props set"
 //            e.props = new HashSet<Property>()

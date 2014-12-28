@@ -2,13 +2,13 @@ package grailshtmlgen
 import grailshtmlgen.Property
 
 class Element {
-	static hasMany = [properties1: Property]
+	static hasMany = [properties1: Property, sameAs:Uri, similarTo:Uri]
 	String name
 	String definition
 	String uri
 	Element parent
-	String sameAs
-	String similarTo
+//	String sameAs
+//	String similarTo
 
 	String toString() { name }
 }

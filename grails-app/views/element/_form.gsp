@@ -34,21 +34,13 @@
 	<g:select id="property" name="property.id" from="${grailshtmlgen.Property.list()}" optionKey="id" required="" value="${elementInstance?.properties1?.id}" class="many-to-one"/>
 </div>
 
-<%--<div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'properties1', 'error')} required">
-	<label for="properties1">
-		<g:message code="element.properties1.label" default="Properties" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="property" name="property" from="${grailshtmlgen.Property.list()*toLong()}" optionKey="id" required="" value="${elementInstance?.properties1}" class="many-to-one" multiple = "true"/>
-</div>--%>
-
-
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'sameAs', 'error')} ">
 	<label for="sameAs">
 		<g:message code="element.sameAs.label" default="Same As" />
 		
 	</label>
-	<g:textField name="sameAs" value="${elementInstance?.sameAs}"/>
+	<!-- <g:textField name="sameAs" value="${elementInstance?.sameAs}"/> -->
+	<g:select id="sameAs" name="sameAs" from="${grailshtmlgen.Uri.list()}" optionKey="id" required="required" value="${elementInstance?.sameAs.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'similarTo', 'error')} ">
@@ -56,7 +48,8 @@
 		<g:message code="element.similarTo.label" default="Similar To" />
 		
 	</label>
-	<g:textField name="similarTo" value="${elementInstance?.similarTo}"/>
+	<!-- <g:textField name="similarTo" value="${elementInstance?.similarTo}"/> -->
+	<g:select id="similarTo" name="similarTo" from="${grailshtmlgen.Uri.list()}" optionKey="id" required="required" value="${elementInstance?.similarTo.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'uri', 'error')} ">
