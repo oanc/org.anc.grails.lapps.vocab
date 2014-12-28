@@ -1,6 +1,6 @@
-import grailshtmlgen.Element
-import grailshtmlgen.Property
-import grailshtmlgen.Uri
+import org.anc.grails.lapps.vocab.Element
+import org.anc.grails.lapps.vocab.Property
+import org.anc.grails.lapps.vocab.Uri
 
 class BootStrap {
     Uri none = new Uri(uri:'none').save(failOnError: true)

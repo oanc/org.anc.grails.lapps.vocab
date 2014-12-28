@@ -1,14 +1,15 @@
-package grailshtmlgen
-import grailshtmlgen.Property
+package org.anc.grails.lapps.vocab
+import org.anc.grails.lapps.vocab.Property
 
 class Element {
-	static hasMany = [properties1: Property, sameAs:Uri, similarTo:Uri]
 	String name
 	String definition
 	String uri
 	Element parent
 //	String sameAs
 //	String similarTo
+
+	static hasMany = [properties1: Property, sameAs:Uri, similarTo:Uri]
 
 	String toString() { name }
 }
