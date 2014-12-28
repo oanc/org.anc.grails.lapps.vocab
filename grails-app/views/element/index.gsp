@@ -29,10 +29,10 @@
 			<table>
 			<thead>
 					<tr>
-					
-						<g:sortableColumn property="definition" title="${message(code: 'element.definition.label', default: 'Definition')}" />
-					
+
 						<g:sortableColumn property="name" title="${message(code: 'element.name.label', default: 'Name')}" />
+
+						<g:sortableColumn property="definition" title="${message(code: 'element.definition.label', default: 'Definition')}" />
 					
 						<th><g:message code="element.parent.label" default="Parent" /></th>
 					
@@ -41,7 +41,7 @@
 						<g:sortableColumn property="similarTo" title="${message(code: 'element.similarTo.label', default: 'Similar To')}" />
 					
 						<g:sortableColumn property="uri" title="${message(code: 'element.uri.label', default: 'Uri')}" />
-						<th><g:message code="element.parent.label" default="Parent" /></th>
+						<th>Properties</th>
 					
 					</tr>
 				</thead>
@@ -49,7 +49,7 @@
 				<g:each in="${elementInstanceList}" status="i" var="elementInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td>${elementInstance.name }</td>
+						<td><g:link action="show" id="${elementInstance.id}">${elementInstance.name }</g:link></td>
 						<td>${elementInstance.definition}</td>
 						<td>${elementInstance.parent}</td>
 						<td>${elementInstance.sameAs }</td>

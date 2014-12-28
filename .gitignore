@@ -28,3 +28,8 @@
 
 # "temporary" build files
 /target
+
+# IntelliJ project files
+*.ipr
+*.iws
+*.iml

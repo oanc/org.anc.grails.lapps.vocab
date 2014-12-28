@@ -9,6 +9,8 @@ class Element {
 	Element parent
 	String sameAs
 	String similarTo
+
+	String toString() { name }
 }
 
  

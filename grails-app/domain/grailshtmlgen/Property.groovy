@@ -7,7 +7,9 @@ class Property {
 	String description
 	static hasMany = [elements:Element]
 	static belongsTo = [Element]
-	
+
+	String toString() { name }
+
     static constraints = {
     }
 }
