@@ -1,4 +1,4 @@
-<%@ page import="grailshtmlgen.Element" %>
+<%@ page import="org.anc.grails.lapps.vocab.Element" %>
 <!DOCTYPE html>
 <html>
 	<head>

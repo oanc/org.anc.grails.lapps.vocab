@@ -1,4 +1,6 @@
-<%@ page import="grailshtmlgen.Element" %>
+<%@ page import="org.anc.grails.lapps.vocab.Element" %>
+<%@ page import="org.anc.grails.lapps.vocab.Property" %>
+<%@ page import="org.anc.grails.lapps.vocab.Uri" %>
 
 
 
@@ -23,7 +25,7 @@
 		<g:message code="element.parent.label" default="Parent" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="parent" name="parent.id" from="${grailshtmlgen.Element.list()}" optionKey="id" required="" value="${elementInstance?.parent?.id}" class="many-to-one"/>
+	<g:select id="parent" name="parent.id" from="${Element.list()}" optionKey="id" required="" value="${elementInstance?.parent?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'properties1', 'error')} required">
@@ -31,7 +33,7 @@
 		<g:message code="element.property.label" default="Property" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="property" name="property.id" from="${grailshtmlgen.Property.list()}" optionKey="id" required="" value="${elementInstance?.properties1?.id}" class="many-to-one"/>
+	<g:select id="property" name="property.id" from="${Property.list()}" optionKey="id" required="" value="${elementInstance?.properties1?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'sameAs', 'error')} ">
@@ -40,7 +42,7 @@
 		
 	</label>
 	<!-- <g:textField name="sameAs" value="${elementInstance?.sameAs}"/> -->
-	<g:select id="sameAs" name="sameAs" from="${grailshtmlgen.Uri.list()}" optionKey="id" required="required" value="${elementInstance?.sameAs.id}" class="many-to-one"/>
+	<g:select id="sameAs" name="sameAs" from="${Uri.list()}" optionKey="id" required="required" value="${elementInstance?.sameAs.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'similarTo', 'error')} ">
@@ -49,7 +51,7 @@
 		
 	</label>
 	<!-- <g:textField name="similarTo" value="${elementInstance?.similarTo}"/> -->
-	<g:select id="similarTo" name="similarTo" from="${grailshtmlgen.Uri.list()}" optionKey="id" required="required" value="${elementInstance?.similarTo.id}" class="many-to-one"/>
+	<g:select id="similarTo" name="similarTo" from="${Uri.list()}" optionKey="id" required="required" value="${elementInstance?.similarTo.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'uri', 'error')} ">

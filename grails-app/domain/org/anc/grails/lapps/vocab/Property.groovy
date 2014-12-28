@@ -5,11 +5,12 @@ class Property {
 	String name
 	String type
 	String description
-	static hasMany = [elements:Element]
-	static belongsTo = [Element]
 
 	String toString() { name }
 
     static constraints = {
+		name blank: false, nullable: false, size:1..50
+		type blank: false, nullable: false, size: 1..50
+		description blank: false, nullable: false, size: 1..500
     }
 }

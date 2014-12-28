@@ -12,6 +12,13 @@ class Element {
 	static hasMany = [properties1: Property, sameAs:Uri, similarTo:Uri]
 
 	String toString() { name }
+
+	static constraints = {
+		name blank: false, nullable: false, size:1..64
+		definition blank: false, nullable: false, size:0..500
+		uri blank: false, nullable: false, url: true
+		parent nullable: true
+	}
 }
 
  

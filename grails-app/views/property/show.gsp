@@ -1,5 +1,5 @@
 
-<%@ page import="grailshtmlgen.Property" %>
+<%@ page import="org.anc.grails.lapps.vocab.Property" %>
 <!DOCTYPE html>
 <html>
 	<head>
