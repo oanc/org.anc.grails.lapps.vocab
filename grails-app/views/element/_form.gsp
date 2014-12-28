@@ -4,20 +4,20 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'name', 'error')} ">
+	<label for="name">
+		<g:message code="element.name.label" default="Name" />
+
+	</label>
+	<g:textField name="name" value="${elementInstance?.name}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'definition', 'error')} ">
 	<label for="definition">
 		<g:message code="element.definition.label" default="Definition" />
 		
 	</label>
 	<g:textField name="definition" value="${elementInstance?.definition}"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'name', 'error')} ">
-	<label for="name">
-		<g:message code="element.name.label" default="Name" />
-		
-	</label>
-	<g:textField name="name" value="${elementInstance?.name}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'parent', 'error')} required">
@@ -29,8 +29,8 @@
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'properties1', 'error')} required">
-	<label for="properties1">
-		<g:message code="element.property.label" default="Property" />
+	<label for="property">
+		<g:message code="element.property.label" default="Properties" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="property" name="property.id" from="${Property.list()}" optionKey="id" required="" value="${elementInstance?.properties1?.id}" class="many-to-one"/>
