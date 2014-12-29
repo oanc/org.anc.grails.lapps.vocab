@@ -9,6 +9,15 @@ import grails.transaction.Transactional
 class ElementController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+
+    VocabService vocabService
+
+    def parse() {
+        vocabService.parse()
+        flash.message = "Parsed the vocabulary DSL."
+        redirect action: 'index', method: 'GET'
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Element.list(params), model:[elementInstanceCount: Element.count()]

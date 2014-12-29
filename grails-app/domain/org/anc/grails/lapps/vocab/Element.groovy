@@ -6,8 +6,6 @@ class Element {
 	String definition
 	String uri
 	Element parent
-//	String sameAs
-//	String similarTo
 
 	static hasMany = [properties1: Property, sameAs:Uri, similarTo:Uri]
 

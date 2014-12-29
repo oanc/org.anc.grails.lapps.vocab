@@ -70,6 +70,7 @@ element {
     definition "A reference to a date or period."
     similarTo "http://schema.org/Date"
     sameAs "$iso/DC-6123"
+    uri "$vocab/Date"
     properties {
         dateType {
             type "String or URI"

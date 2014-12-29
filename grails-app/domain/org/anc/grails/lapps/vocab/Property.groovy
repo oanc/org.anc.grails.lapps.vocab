@@ -6,6 +6,7 @@ class Property {
 	String type
 	String description
 
+	static belongsTo = [ Element ]
 	String toString() { name }
 
     static constraints = {
