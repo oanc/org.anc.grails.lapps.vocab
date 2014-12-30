@@ -1,6 +1,8 @@
 package org.anc.grails.lapps.vocab
 
-
+import org.anc.lapps.vocab.dsl.ElementDelegate
+import org.anc.lapps.vocab.dsl.PropertyDelegate
+import org.anc.lapps.vocab.dsl.VocabDsl
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -14,8 +16,9 @@ class ElementController {
 
     def parse() {
         vocabService.parse()
-        flash.message = "Parsed the vocabulary DSL."
-        redirect action: 'index', method: 'GET'
+//        compile()
+        flash.message = "Parsed the LAPPS Vocabulary DSL."
+        redirect action:'index'
     }
 
     def index(Integer max) {
@@ -47,7 +50,7 @@ class ElementController {
 
         request.withFormat {
             form {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'elementInstance.label', default: 'Element'), elementInstance.id])
+                flash.message = message(code: 'default.created.message', args: [message(code: 'element.label', default: 'Element'), elementInstance.id])
                 redirect elementInstance
             }
             '*' { respond elementInstance, [status: CREATED] }
@@ -74,7 +77,7 @@ class ElementController {
 
         request.withFormat {
             form {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Element.label', default: 'Element'), elementInstance.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'element.label', default: 'Element'), elementInstance.id])
                 redirect elementInstance
             }
             '*'{ respond elementInstance, [status: OK] }
@@ -93,7 +96,7 @@ class ElementController {
 
         request.withFormat {
             form {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Element.label', default: 'Element'), elementInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'element.label', default: 'Element'), elementInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -103,10 +106,11 @@ class ElementController {
     protected void notFound() {
         request.withFormat {
             form {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'elementInstance.label', default: 'Element'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'element.label', default: 'Element'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }
     }
+
 }

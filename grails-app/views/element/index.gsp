@@ -57,10 +57,6 @@
 						<td>${elementInstance.similarTo}</td>
 						<td>${elementInstance.uri}</td>
 						<td>${elementInstance.properties1}</td>
-						<td><g:each in="${elementInstance.properties1}" status="j" var="propertyInstance">
-								${propertyInstance.name}
-							</g:each></td>
-					
 					</tr>
 				</g:each>
 				</tbody>
