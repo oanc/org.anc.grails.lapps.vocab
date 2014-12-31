@@ -4,7 +4,7 @@
  * "$vocab/Token", "$iso/DC-2119"
  */
 schema="http://schema.org"
-vocab="http//vocab.lappsgrid.org"
+vocab="http://vocab.lappsgrid.org"
 iso="http://www.isocat.org/datcat"
 
 element {
