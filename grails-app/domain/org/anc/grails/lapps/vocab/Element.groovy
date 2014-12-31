@@ -6,9 +6,6 @@ class Element {
 	String definition
 	String uri
 	Element parent
-//	List<Property> properties1
-//	Set<Uri> sameAs
-//	Set<Uri> similarTo
 
 	String toString() { name }
 
