@@ -1,4 +1,4 @@
-package grailshtmlgen
+package org.anc.grails.lapps.vocab
 
 
 

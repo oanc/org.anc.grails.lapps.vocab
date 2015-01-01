@@ -1,4 +1,4 @@
-package grailshtmlgen
+package org.anc.grails.lapps.vocab
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -6,7 +6,7 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-class HTMLDomainsSpec extends Specification {
+class ElementdomainSpec extends Specification {
 
     def setup() {
     }

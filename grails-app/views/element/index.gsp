@@ -1,5 +1,5 @@
 
-<%@ page import="grailshtmlgen.Element" %>
+<%@ page import="org.anc.grails.lapps.vocab.Element" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,6 +19,7 @@
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="parse"><g:message code="parse.label" default="Parse DSL"/></g:link></li>
 			</ul>
 		</div>
 		<div id="list-element" class="content scaffold-list" role="main">
@@ -49,17 +50,13 @@
 				<g:each in="${elementInstanceList}" status="i" var="elementInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${elementInstance.id}">${elementInstance.name }</g:link></td>
+						<td><g:link action="edit" id="${elementInstance.id}">${elementInstance.name }</g:link></td>
 						<td>${elementInstance.definition}</td>
 						<td>${elementInstance.parent}</td>
 						<td>${elementInstance.sameAs }</td>
 						<td>${elementInstance.similarTo}</td>
 						<td>${elementInstance.uri}</td>
 						<td>${elementInstance.properties1}</td>
-						<td><g:each in="${elementInstance.properties1}" status="j" var="propertyInstance">
-								${propertyInstance.name}
-							</g:each></td>
-					
 					</tr>
 				</g:each>
 				</tbody>

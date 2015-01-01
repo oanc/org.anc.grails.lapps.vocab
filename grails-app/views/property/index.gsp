@@ -1,5 +1,5 @@
 
-<%@ page import="grailshtmlgen.Property" %>
+<%@ page import="org.anc.grails.lapps.vocab.Property" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,11 +23,8 @@
 			<table>
 			<thead>
 					<tr>
-					
-						<g:sortableColumn property="description" title="${message(code: 'property.description.label', default: 'Description')}" />
-					
 						<g:sortableColumn property="name" title="${message(code: 'property.name.label', default: 'Name')}" />
-					
+						<g:sortableColumn property="description" title="${message(code: 'property.description.label', default: 'Description')}" />
 						<g:sortableColumn property="type" title="${message(code: 'property.type.label', default: 'Type')}" />
 					
 					</tr>
@@ -35,11 +32,9 @@
 				<tbody>
 				<g:each in="${propertyInstanceList}" status="i" var="propertyInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${propertyInstance.id}">${fieldValue(bean: propertyInstance, field: "description")}</g:link></td>
-					
-						<td>${fieldValue(bean: propertyInstance, field: "name")}</td>
-					
+
+						<td><g:link action="edit" id="${propertyInstance.id}">${fieldValue(bean: propertyInstance, field: "name")}</g:link></td>
+						<td>${fieldValue(bean: propertyInstance, field: "description")}</td>
 						<td>${fieldValue(bean: propertyInstance, field: "type")}</td>
 					
 					</tr>
