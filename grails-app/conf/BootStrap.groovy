@@ -1,12 +1,14 @@
 import org.anc.grails.lapps.vocab.Element
 import org.anc.grails.lapps.vocab.Property
 import org.anc.grails.lapps.vocab.Uri
+import org.anc.grails.lapps.vocab.VocabService
 
 class BootStrap {
-    Uri none = new Uri(uri:'none').save(failOnError: true)
+    VocabService vocabService
 
     def init = { servletContext ->
 //        setup()
+        vocabService.parse()
     }
 
     void setup() {

@@ -10,6 +10,7 @@ class Element {
 	String toString() { name }
 
 	static hasMany = [properties1: Property, sameAs:Uri, similarTo:Uri]
+	static belongsTo = [ Element ]
 	static constraints = {
 		name blank: false, nullable: false, size:1..64
 		definition blank: false, nullable: false, size:0..500
@@ -20,6 +21,7 @@ class Element {
 		properties1 cascade: 'all-delete-orphan'
 		sameAs cascade: 'all-delete-orphan'
 		similarTo cascade: 'all-delete-orphan'
+		parent cascade: 'all-delete-orphan'
 	}
 }
 

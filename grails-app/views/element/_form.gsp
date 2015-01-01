@@ -17,7 +17,7 @@
 		<g:message code="element.definition.label" default="Definition" />
 		
 	</label>
-	<g:textField name="definition" value="${elementInstance?.definition}"/>
+	<g:textArea name="definition" value="${elementInstance?.definition}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'parent', 'error')} required">
@@ -29,6 +29,7 @@
 			  name="parent.id"
 			  from="${Element.list()}"
 			  optionKey="id"
+		      noSelection="${['null':'None']}"
 			  value="${elementInstance?.parent?.id}"/>
 </div>
 
@@ -41,6 +42,8 @@
 			  name="properties1"
 			  from="${Property.list()}"
 			  optionKey="id"
+			  noSelection="${['null' : 'None']}"
+		      value="${elementInstance?.properties1*.id}"
 			  multiple="true"/>
 </div>
 
@@ -54,6 +57,8 @@
 			  name="sameAs"
 			  from="${Uri.list()}"
 			  optionKey="id"
+			  noSelection="${['null' : 'None']}"
+		      value="${elementInstance.sameAs*.id}"
 			  multiple="true"/>
 </div>
 
@@ -65,7 +70,10 @@
 	<!-- <g:textField name="similarTo" value="${elementInstance?.similarTo}"/> -->
 	<g:select id="similarTo"
 			  name="similarTo"
+		      width="50"
 			  from="${Uri.list()}"
+			  noSelection="${['null' : 'None']}"
+			  value="${elementInstance.sameAs*.id}"
 			  optionKey="id"
 			  multiple="true"/>
 </div>
@@ -75,6 +83,6 @@
 		<g:message code="element.uri.label" default="Uri" />
 		
 	</label>
-	<g:textField name="uri" value="${elementInstance?.uri}"/>
+	<g:textField name="uri" value="${elementInstance?.uri}" size="50"/>
 </div>
 
