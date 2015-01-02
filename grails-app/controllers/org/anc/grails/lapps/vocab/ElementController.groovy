@@ -22,7 +22,7 @@ class ElementController {
     }
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 20, 100)
         respond Element.list(params), model:[elementInstanceCount: Element.count()]
     }
 

@@ -2,8 +2,72 @@
 <%@ page import="org.anc.grails.lapps.vocab.Property" %>
 <%@ page import="org.anc.grails.lapps.vocab.Uri" %>
 
+<table>
+	<tr>
+		<td class="top-right">Name</td>
+		<td><g:textField name="name" value="${elementInstance?.name}"/></td>
+	</tr>
+	<tr>
+		<td class="top-right">Definition</td>
+		<td><g:textArea name="definition" value="${elementInstance?.definition}"/> </td>
+	</tr>
+	<tr>
+		<td class="top-right">Parent</td>
+		<td>
+			<g:select id="parent"
+						  name="parent.id"
+						  from="${Element.list()}"
+						  optionKey="id"
+						  noSelection="${['null':'None']}"
+						  value="${elementInstance?.parent?.id}"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="top-right">Properties</td>
+		<td>
+			<g:select id="properties1"
+					  name="properties1"
+					  from="${Property.list()}"
+					  optionKey="id"
+					  noSelection="${['null' : 'None']}"
+					  value="${elementInstance?.properties1*.id}"
+					  multiple="true"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="top-right">Same As</td>
+		<td>
+			<g:select id="sameAs"
+					  name="sameAs"
+					  from="${Uri.list()}"
+					  optionKey="id"
+					  noSelection="${['null' : 'None']}"
+					  value="${elementInstance.sameAs*.id}"
+					  multiple="true"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="top-right">Similar To</td>
+		<td>
+			<g:select id="similarTo"
+					  name="similarTo"
+					  width="50"
+					  from="${Uri.list()}"
+					  noSelection="${['null' : 'None']}"
+					  value="${elementInstance.sameAs*.id}"
+					  optionKey="id"
+					  multiple="true"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="top-right">URI</td>
+		<td>
+			<g:textField name="uri" value="${elementInstance?.uri}" size="50"/>
+		</td>
+	</tr>
+</table>
 
-
+<!--
 <div class="fieldcontain ${hasErrors(bean: elementInstance, field: 'name', 'error')} ">
 	<label for="name">
 		<g:message code="element.name.label" default="Name" />
@@ -52,7 +116,6 @@
 		<g:message code="element.sameAs.label" default="Same As" />
 		
 	</label>
-	<!-- <g:textField name="sameAs" value="${elementInstance?.sameAs}"/> -->
 	<g:select id="sameAs"
 			  name="sameAs"
 			  from="${Uri.list()}"
@@ -67,7 +130,6 @@
 		<g:message code="element.similarTo.label" default="Similar To" />
 		
 	</label>
-	<!-- <g:textField name="similarTo" value="${elementInstance?.similarTo}"/> -->
 	<g:select id="similarTo"
 			  name="similarTo"
 		      width="50"
@@ -85,4 +147,4 @@
 	</label>
 	<g:textField name="uri" value="${elementInstance?.uri}" size="50"/>
 </div>
-
+-->

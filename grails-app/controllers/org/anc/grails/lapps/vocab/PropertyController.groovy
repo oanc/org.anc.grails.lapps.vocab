@@ -11,7 +11,7 @@ class PropertyController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 20, 100)
         respond Property.list(params), model:[propertyInstanceCount: Property.count()]
     }
 
@@ -39,7 +39,7 @@ class PropertyController {
 
         request.withFormat {
             form {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'propertyInstance.label', default: 'Property'), propertyInstance.id])
+                flash.message = message(code: 'default.created.message', args: [message(code: 'property.label', default: 'Property'), propertyInstance.id])
                 redirect propertyInstance
             }
             '*' { respond propertyInstance, [status: CREATED] }
@@ -66,7 +66,7 @@ class PropertyController {
 
         request.withFormat {
             form {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Property.label', default: 'Property'), propertyInstance.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'property.label', default: 'Property'), propertyInstance.id])
                 redirect propertyInstance
             }
             '*'{ respond propertyInstance, [status: OK] }
@@ -85,7 +85,7 @@ class PropertyController {
 
         request.withFormat {
             form {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Property.label', default: 'Property'), propertyInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'property.label', default: 'Property'), propertyInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -95,7 +95,7 @@ class PropertyController {
     protected void notFound() {
         request.withFormat {
             form {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'propertyInstance.label', default: 'Property'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'property.label', default: 'Property'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

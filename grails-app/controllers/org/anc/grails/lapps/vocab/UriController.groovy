@@ -8,10 +8,10 @@ import grails.transaction.Transactional
 class UriController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-    static scaffold = Uri
+//    static scaffold = Uri
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 20, 100)
         respond Uri.list(params), model: [uriInstanceCount: Uri.count()]
     }
 
@@ -39,7 +39,7 @@ class UriController {
 
         request.withFormat {
             form {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'uriInstance.label', default: 'Uri'), uriInstance.id])
+                flash.message = message(code: 'default.created.message', args: [message(code: 'uri.label', default: 'Uri'), uriInstance.id])
                 redirect uriInstance
             }
             '*' { respond uriInstance, [status: CREATED] }
@@ -66,7 +66,7 @@ class UriController {
 
         request.withFormat {
             form {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Uri.label', default: 'Uri'), uriInstance.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'uri.label', default: 'Uri'), uriInstance.id])
                 redirect uriInstance
             }
             '*' { respond uriInstance, [status: OK] }
@@ -85,7 +85,7 @@ class UriController {
 
         request.withFormat {
             form {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Uri.label', default: 'Uri'), uriInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'uri.label', default: 'Uri'), uriInstance.id])
                 redirect action: "index", method: "GET"
             }
             '*' { render status: NO_CONTENT }
@@ -95,7 +95,7 @@ class UriController {
     protected void notFound() {
         request.withFormat {
             form {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'uriInstance.label', default: 'Uri'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'uri.label', default: 'Uri'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*' { render status: NOT_FOUND }
