@@ -1,5 +1,5 @@
-@import "http://www.anc.org/wp-content/themes/anc/style.css";
-/* @import "anc.css"; */
+/* @import "http://www.anc.org/wp-content/themes/anc/style.css"; */
+@import "anc.css";
 
 table.center {
     margin-left: auto;
@@ -987,6 +987,17 @@ textarea {
     overflow: auto; /* IE always renders vertical scrollbar without this */
     vertical-align: top;
 }
+
+textarea.standard {
+    width: 250px;
+    height: 150px;
+}
+
+textarea.big {
+    width: 75em;
+    height: 100em;
+}
+
 
 input[type=checkbox], input[type=radio] {
     background-color: transparent;
