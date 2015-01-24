@@ -51,7 +51,7 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.27'
         // runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
-        compile 'org.anc.lapps:vocab-dsl:1.1.0-SNAPSHOT'
+        compile 'org.anc.lapps:vocab-dsl:1.1.0'
     }
 
     plugins {
