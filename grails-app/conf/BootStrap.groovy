@@ -1,14 +1,15 @@
 import org.anc.grails.lapps.vocab.Element
 import org.anc.grails.lapps.vocab.Property
 import org.anc.grails.lapps.vocab.Uri
-import org.anc.grails.lapps.vocab.VocabService
+
+//import org.anc.grails.lapps.vocab.VocabService
 
 class BootStrap {
-    VocabService vocabService
+//    VocabService vocabService
 
     def init = { servletContext ->
 //        setup()
-        vocabService.parse()
+//        vocabService.parse()
     }
 
     void setup() {
